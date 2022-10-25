@@ -5,7 +5,7 @@ import log
 def menu():
     going=True
     while going:
-        request=['Просмотр справочника;Добавление контакта;Удаление контакта;Поиск контакта;Экспорт в CSV;Экспорт в XML;Выход']
+        request=['Просмотр телефонной книги;Добавление контакта;Удаление контакта;Поиск контакта;Экспорт в CSV;Экспорт в XML;Выход']
         choice = ui.get_choice(request[0])
         if choice == 1:
             ui.get_look()
