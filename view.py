@@ -1,13 +1,13 @@
-def get_choice(comand_line):
-    comands_list=comand_line.split(';')
-    comands=enumerate(comands_list,1)
+def get_choice(command_line):
+    commands_list=command_line.split(';')
+    commands=enumerate(commands_list,1)
     print('\nВыберите пункт меню: ')
     going = True
     while going:
-        greatings=', '.join([f'{x[0]}:{x[1]}' for x in comands])
+        greatings=''.join([f'{x[0]} - {x[1]}\n' for x in commands ])
         print(f'{greatings}')
         inp = input()
-        if inp.isdigit() and 0 < int(inp) and int(inp)<len(comands_list)+1:
+        if inp.isdigit() and 0 < int(inp) and int(inp)<len(commands_list)+1:
             going=False
         else:
             print("Вы ввели неверное значение. Повторите ввод")
