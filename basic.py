@@ -1,4 +1,6 @@
 import view as ui
+import json
+import csv
 
 def get_input(req):
     answer = []
@@ -62,3 +64,19 @@ def get_out():
         temp = [line.replace('\n','').split(',') for line in file]
     with open(file_name,'w') as output:
         [output.writelines(pattern.format(x[0],x[1],x[2]) for x in temp)]
+
+def get_out_xml():
+    reader = csv.reader(open('phonebook.csv', 'r'), delimiter=",")
+    f = open('export.xml', 'w')
+    f.write('<phonebook-data>' + '\n')
+
+    for row in reader:
+        f.write('\t' + '<Contact>' + '\n')
+        f.write('\t' + '\t' + '<Surname>' + row[0] + '</Surname>' + '\n')
+        f.write('\t' + '\t' + '<Name>' + row[1] + '</Name>' + '\n')
+        f.write('\t' + '\t' + '<Phonenumber>' + row[2] + '</Phonenumber>' + '\n')
+        f.write('\t' + '</Contact>' + '\n')
+
+    f.write('</phonebook-data>')
+
+ 
